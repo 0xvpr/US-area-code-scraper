@@ -1,5 +1,5 @@
 # US Area Code Scraper
-This script scrapes <a href="https://www.worldatlas.com/na/us/area-codes.html">worldatlas.com</a>'s US Area Code Map and parses it to create  
+This script scrapes worldatlas's <a href="https://www.worldatlas.com/na/us/area-codes.html">US Area Code Map</a> and parses it to create  
 a python dict. The dict is then formatted into a copy-pastable code snippet.
 
 Any contributions and suggestions are welcome.

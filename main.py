@@ -35,17 +35,17 @@ def handle_command_line() -> Union[NoReturn, None, str]:
     parser.add_argument( "-c",
                          action="store_true",
                          dest="c",
-                         help="Convert bytes in file to raw string." )
+                         help="Format the output as a const int array." )
 
-    parser.add_argument( "--cpp",
+    parser.add_argument( "-cpp",
                          action="store_true",
                          dest="cpp",
-                         help="Convert bytes in file to cstr." )
+                         help="Format the output as a const int array." )
 
-    parser.add_argument( "--py",
+    parser.add_argument( "-py",
                          action="store_true",
                          dest="py",
-                         help="Convert bytes in file to cstr." )
+                         help="Format the output as a tuple of ints." )
 
     args = parser.parse_args()
 
@@ -60,9 +60,16 @@ def handle_command_line() -> Union[NoReturn, None, str]:
 
 def __usage_error(exit_code: int) -> NoReturn:
     if exit_code == 1:
-        sys.stderr.write(f"{sys.argv[0]} [ -c | -cpp | -py ]\n\n")
+        sys.stderr.write( f"Error: multiple switches selected.\n"
+                          f"\n"
+                          f"Usage:\n"
+                          f"  {sys.argv[0]} [ -c | -cpp | -py | -h | --help ]\n"
+                          f"\n"
+                          f"Example:\n"
+                          f"  {sys.argv[0]} -cpp\n"
+                          f"\n" )
 
-    sys.stderr.write(f"Exited with exit code: {exit_code}.")
+    sys.stderr.write(f"Exited with exit code: {exit_code}.\n")
     sys.exit(exit_code)
 
 if __name__ == "__main__":
